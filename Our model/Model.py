@@ -308,6 +308,8 @@ class GAT(torch.nn.Module):
         x = F.normalize(x).cuda()
 
         if hop == 1:
+            print('Shape of x after linear_layer1:', F.leaky_relu(self.linear_layer1(x)).shape)
+            print('Shape of id_embedding.weight:', id_embedding.weight.shape)
             h = F.leaky_relu(self.conv_embed_1(x, self.edge_index, None)) 
             x_hat = F.leaky_relu(self.linear_layer1(x)) + id_embedding.weight
             x = F.leaky_relu(self.g_layer1(h)+x_hat)

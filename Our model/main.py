@@ -229,6 +229,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     NFT_MARS = Net(args)
-    wandb.init(project="YOUR_PROJECT", name=f'{args.collection}_{args.loss_alpha}', entity="YOUR_ENTITY", config={k: v for k, v in args._get_kwargs()})
+    wandb.init(project="nft_me", name=f'{args.collection}_{args.loss_alpha}', entity="dtang3-worcester-polytechnic-institute", config={k: v for k, v in args._get_kwargs()})
     NFT_MARS.run()
     wandb.finish()
